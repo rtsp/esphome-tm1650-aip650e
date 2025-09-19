@@ -41,11 +41,11 @@ void TM1650Display::setup() {
 
   auto err = this->write(nullptr, 0);
 
-  if (err != i2c::ERROR_OK) {
-    this->error_code_ = COMMUNICATION_FAILED;
-    this->mark_failed();
-    return;
-  }
+  // if (err != i2c::ERROR_OK) {
+  //   this->error_code_ = COMMUNICATION_FAILED;
+  //   this->mark_failed();
+  //   return;
+  // }
 }
 
 void TM1650Display::update() {
@@ -80,9 +80,9 @@ void TM1650Display::dump_config() {
   ESP_LOGCONFIG(TAG, "  Backward: %d", this->backward_);
   LOG_UPDATE_INTERVAL(this);
 
-  if (this->error_code_ == COMMUNICATION_FAILED) {
-    ESP_LOGE(TAG, "Communication with TM1650 failed!");
-  }
+  // if (this->error_code_ == COMMUNICATION_FAILED) {
+  //   ESP_LOGE(TAG, "Communication with TM1650 failed!");
+  // }
 }
 
 uint8_t TM1650Display::print(uint8_t start_pos, const char *str) {
